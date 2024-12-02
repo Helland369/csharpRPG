@@ -1,12 +1,13 @@
-﻿using PlayerClass;
+﻿using ChacterClass;
 
 
 class Program {
 
     static void Main(string[] args) {
 
-        Player p = new Player();
+        Character character = new Character();
 
-        p.characterCreat();
+        character.characterCreat();
+
     }
 }

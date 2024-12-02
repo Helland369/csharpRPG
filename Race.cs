@@ -22,56 +22,48 @@ namespace RaceClass
         public int _Hp
         {
             get { return this._hp; }
-
             set { this._hp = value; }
         }
 
         public int _Dexterity
         {
             get { return _dexterity; }
-
             set { this._dexterity = value; }
         }
 
         public int _Strength
         {
             get { return this._strength; }
-
             set { this._strength = value; }
         }
 
         public int _Intelligence
         {
             get { return this._intelligence; }
-
             set { this._intelligence = value; }
         }
 
         public int _Constitution
         {
             get { return this._constitution; }
-
             set { this._constitution = value; }
         }
 
         public int _Wisdom
         {
             get { return this._wisdom; }
-
             set { this._wisdom = value; }
         }
 
         public int _Charisma
         {
             get { return this._charisma; }
-
             set { this._charisma = value; }
         }
 
         public string _Race
         {
             get { return this._race; }
-
             set { this._race = value; }
         }
     }

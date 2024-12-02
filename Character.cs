@@ -1,17 +1,17 @@
 using RaceClass;
 
-namespace PlayerClass
+namespace ChacterClass
 {
 
 
-    class Player
+    class Character
     {
         private int _exp, _level, _hp, _maxHp, _dexterity, _strength, _intelligence, _constitution, _wisdom, _charisma;
         private string _name, _race, _sex;
 
         private Race selectedRace;
 
-        public Player()
+        public Character()
         {
             this._exp = 0;
             this._level = 1;
@@ -26,6 +26,7 @@ namespace PlayerClass
             this._name = "";
             this._race = ";";
             this._sex = "";
+            this.selectedRace = selectRace();
         }
 
         private List<Race> raceList = new List<Race>() {
@@ -52,7 +53,7 @@ namespace PlayerClass
             set { this._hp = value; }
         }
 
-        public int _Levei
+        public int _Level
         {
             get { return this._level; }
 
@@ -73,10 +74,19 @@ namespace PlayerClass
             return this._hp;
         }
 
-        public void characterCreat()
+        public int basicAttack(Character target)
         {
 
-            Console.WriteLine("***Character Cration***");
+            if (this._hp > 0)
+            {
+                target._Hp = target._Hp -= this._strength;
+            }
+
+            return this._hp;
+        }
+
+        Race selectRace()
+        {
             Console.WriteLine("Select a race:");
 
             for (int i = 0; i < raceList.Count(); i++)
@@ -102,10 +112,17 @@ namespace PlayerClass
                 this._race = selectedRace._Race;
             }
 
+            return selectedRace;
+        }
+
+        string selectSex()
+        {
+
             Console.WriteLine("Select a sex for you character");
             Console.WriteLine("Male\nFemale");
 
             string selectSex = Console.ReadLine();
+
             if (!string.IsNullOrEmpty(selectSex))
             {
                 selectSex = char.ToUpper(selectSex[0]) + selectSex.Substring(1);
@@ -114,11 +131,18 @@ namespace PlayerClass
             if (selectSex == "Male")
             {
                 this._sex = selectSex;
+                return this._sex;
             }
             else if (selectSex == "Female")
             {
                 this._sex = selectSex;
+                return this._sex;
             }
+            return this._sex;
+        }
+
+        string selectName()
+        {
 
             Console.WriteLine("Select a name for you character");
 
@@ -127,8 +151,19 @@ namespace PlayerClass
             {
                 nameIn = char.ToUpper(nameIn[0]) + nameIn.Substring(1);
             }
-
             this._name = nameIn;
+
+            return this._name;
+        }
+
+        public void characterCreat()
+        {
+
+            Console.WriteLine("***Character Cration***");
+
+            selectRace();
+            selectSex();
+            selectName();
 
             Console.WriteLine($"{this._hp}");
             Console.WriteLine($"{this._dexterity}");
