@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bTIgLkVr1LRghtpvPVHG71ZhUA3jLcpfGlWm6AQOh2rNkG1eGG7mK9PK/fD3uQlRK/dTC4VNPP/pMwa1OZGnDQ==",
+  "success": true,
+  "projectFilePath": "/home/th/github/csharRPG/csharpRPG.csproj",
+  "expectedPackageFiles": [
+    "/home/th/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.10/microsoft.aspnetcore.app.ref.8.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}
