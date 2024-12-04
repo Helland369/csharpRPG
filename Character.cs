@@ -1,4 +1,5 @@
 using RaceClass;
+using EnemyClass;
 
 namespace ChacterClass
 {
@@ -74,15 +75,17 @@ namespace ChacterClass
             return this._hp;
         }
 
-        public int basicAttack(Character target)
+        public int basicAttack(Enemy target)
         {
 
-            if (this._hp > 0)
-            {
-                target._Hp = target._Hp -= this._strength;
-            }
+            target._Hp = target._Hp - this._strength;
 
             return this._hp;
+        }
+
+        public bool isAlive()
+        {
+            return this._hp > 0;
         }
 
         Race selectRace()
