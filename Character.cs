@@ -7,7 +7,8 @@ namespace ChacterClass
 
     class Character
     {
-        private int _exp, _level, _hp, _maxHp, _dexterity, _strength, _intelligence, _constitution, _wisdom, _charisma;
+        private int _level, _hp, _maxHp, _mana, _maxMana, _evasion, _attackPower, _defencePower;
+        long _exp;
         private string _name, _race, _sex;
 
         private Race selectedRace;
@@ -18,12 +19,11 @@ namespace ChacterClass
             this._level = 1;
             this._hp = 100;
             this._maxHp = 100;
-            this._dexterity = 10;
-            this._strength = 10;
-            this._intelligence = 10;
-            this._constitution = 10;
-            this._wisdom = 10;
-            this._charisma = 10;
+            this._evasion = 10;
+            this._attackPower = 10;
+            this._mana = 10;
+            this._maxMana = 30;
+            this._defencePower = 10;
             this._name = "";
             this._race = ";";
             this._sex = "";
@@ -31,34 +31,65 @@ namespace ChacterClass
         }
 
         private List<Race> raceList = new List<Race>() {
-            new Race(75, 12,10,15,8,8,8,"Gnome"),
-            new Race(85, 12,10,15,8,8,8,"Dwarf"),
-            new Race(85, 12,10,15,8,8,8,"Goblin"),
-            new Race(100, 12,10,15,8,8,8,"Human"),
-            new Race(95, 12,10,15,8,8,8,"Elf"),
-            new Race(130, 12,10,15,8,8,8,"Tauren"),
-            new Race(125, 12,10,15,8,8,8,"Orc")
+            new Race(75, 20,30,30,16, "Gnome"),
+            new Race(85, 20,30,30,16,"Dwarf"),
+            new Race(85, 20,30,30,16,"Goblin"),
+            new Race(100, 16,30,30,20,"Human"),
+            new Race(95, 22,30,30,20,"Elf"),
+            new Race(130, 13,30,30,30,"Tauren"),
+            new Race(125, 16,30,30,26,"Orc")
         };
 
-        public int _Exp
-        {
-            get { return this._exp; }
-
-            set { this._exp = value; }
-        }
-
-        public int _Hp
-        {
-            get { return this._hp; }
-
-            set { this._hp = value; }
-        }
+        // get set
 
         public int _Level
         {
             get { return this._level; }
 
             set { this._level = value; }
+        }
+
+        public int _Hp
+        {
+            get { return this._hp; }
+            set { this._hp = value; }
+
+        }
+
+        public int _MaxHp
+        {
+            get { return this._maxHp; }
+            set { _maxHp = value; }
+        }
+
+        public int _Evasion
+        {
+            get { return _evasion; }
+            set { _evasion = value; }
+        }
+
+        public int _AttackPower
+        {
+            get { return _attackPower; }
+            set { _attackPower = value; }
+        }
+
+        public int _Mana
+        {
+            get { return _mana; }
+            set { _mana = value; }
+        }
+
+        public int _DefencePower
+        {
+            get { return _defencePower; }
+            set { _defencePower = value; }
+        }
+
+        public long _Exp
+        {
+            get { return this._exp; }
+            set { this._exp = value; }
         }
 
         public string _Name
@@ -68,6 +99,8 @@ namespace ChacterClass
             set { this._name = value; }
         }
 
+        // functions aka methods
+
         public int characterHeal()
         {
             if (this._hp < this._maxHp)
@@ -75,10 +108,17 @@ namespace ChacterClass
             return this._hp;
         }
 
+        public int restoreMana()
+        {
+            if (this._mana < this._maxMana)
+                this._mana = this._mana + 10;
+            return this._mana;
+        }
+
         public int basicAttack(Enemy target)
         {
-
-            target._Hp = target._Hp - this._strength;
+            target._Hp = target._Hp - this._attackPower;
+            this._mana = this._mana - 5;
 
             return this._hp;
         }
@@ -106,12 +146,10 @@ namespace ChacterClass
             {
 
                 this._hp = selectedRace._Hp;
-                this._dexterity = selectedRace._Dexterity;
-                this._strength = selectedRace._Strength;
-                this._intelligence = selectedRace._Intelligence;
-                this._constitution = selectedRace._Constitution;
-                this._wisdom = selectedRace._Wisdom;
-                this._charisma = selectedRace._Charisma;
+                this._evasion = selectedRace._Evasion;
+                this._attackPower = selectedRace._AttackPower;
+                this._mana = selectedRace._Mana;
+                this._defencePower = selectedRace._DefencePower;
                 this._race = selectedRace._Race;
             }
 
@@ -169,12 +207,10 @@ namespace ChacterClass
             selectName();
 
             Console.WriteLine($"{this._hp}");
-            Console.WriteLine($"{this._dexterity}");
-            Console.WriteLine($"{this._strength}");
-            Console.WriteLine($"{this._intelligence}");
-            Console.WriteLine($"{this._constitution}");
-            Console.WriteLine($"{this._wisdom}");
-            Console.WriteLine($"{this._charisma}");
+            Console.WriteLine($"{this._evasion}");
+            Console.WriteLine($"{this._attackPower}");
+            Console.WriteLine($"{this._mana}");
+            Console.WriteLine($"{this._defencePower}");
             Console.WriteLine($"{this._race}");
             Console.WriteLine($"{this._sex}");
             Console.WriteLine($"{this._name}");

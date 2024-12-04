@@ -1,64 +1,51 @@
 namespace RaceClass
 {
 
-
     class Race
     {
-        private int _hp, _dexterity, _strength, _intelligence, _constitution, _wisdom, _charisma;
+        private int _hp, _evasion, _attackPower, _mana, _defencePower;
         private string _race;
 
-        public Race(int hp, int dex, int str, int intt, int cons, int wis, int cha, string race)
+        public Race(int hp, int evasion, int attackPower, int mana, int defencePower, string race)
         {
             this._hp = hp;
-            this._dexterity = dex;
-            this._strength = str;
-            this._intelligence = intt;
-            this._constitution = cons;
-            this._wisdom = wis;
-            this._charisma = cha;
+            this._evasion = evasion;
+            this._attackPower = attackPower;
+            this._mana = mana;
+            this._defencePower = defencePower;
             this._race = race;
         }
 
+        // get set
+        
         public int _Hp
         {
             get { return this._hp; }
             set { this._hp = value; }
         }
 
-        public int _Dexterity
+        public int _Evasion
         {
-            get { return _dexterity; }
-            set { this._dexterity = value; }
+            get { return _evasion; }
+            set { this._evasion = value; }
         }
 
-        public int _Strength
+        public int _AttackPower
         {
-            get { return this._strength; }
-            set { this._strength = value; }
+            get { return this._attackPower; }
+            set { this._attackPower = value; }
         }
 
-        public int _Intelligence
+        public int _Mana
         {
-            get { return this._intelligence; }
-            set { this._intelligence = value; }
+            get { return this._mana; }
+            set { this._mana = value; }
         }
 
-        public int _Constitution
+        public int _DefencePower
         {
-            get { return this._constitution; }
-            set { this._constitution = value; }
-        }
-
-        public int _Wisdom
-        {
-            get { return this._wisdom; }
-            set { this._wisdom = value; }
-        }
-
-        public int _Charisma
-        {
-            get { return this._charisma; }
-            set { this._charisma = value; }
+            get { return this._defencePower; }
+            set { this._defencePower = value; }
         }
 
         public string _Race

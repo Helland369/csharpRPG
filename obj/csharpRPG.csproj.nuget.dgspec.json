@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/th/github/csharRPG/csharpRPG.csproj": {}
+    "/home/th/github/csharpRPG/csharpRPG.csproj": {}
   },
   "projects": {
-    "/home/th/github/csharRPG/csharpRPG.csproj": {
+    "/home/th/github/csharpRPG/csharpRPG.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/th/github/csharRPG/csharpRPG.csproj",
+        "projectUniqueName": "/home/th/github/csharpRPG/csharpRPG.csproj",
         "projectName": "csharpRPG",
-        "projectPath": "/home/th/github/csharRPG/csharpRPG.csproj",
+        "projectPath": "/home/th/github/csharpRPG/csharpRPG.csproj",
         "packagesPath": "/home/th/.nuget/packages/",
-        "outputPath": "/home/th/github/csharRPG/obj/",
+        "outputPath": "/home/th/github/csharpRPG/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/th/.nuget/NuGet/NuGet.Config"

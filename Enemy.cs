@@ -5,10 +5,12 @@ namespace EnemyClass
 {
 
 
+    //private int _level, _hp, _maxHp, _evasion, _attackPower, _mana, _defencePower;
     class Enemy
     {
 
-        private int _exp, _level, _hp, _maxHp, _dexterity, _strength, _intelligence, _constitution, _wisdom, _charisma;
+        private int _level, _hp, _maxHp, _evasion, _attackPower, _mana, _defencePower;
+        long _exp;
         private string _name, _race, _sex;
 
         private Race selectedRace;
@@ -16,16 +18,16 @@ namespace EnemyClass
         private string[] enemyNames = { "Per", "Pål", "Espen", "Gunnar", "Terje", "Hans", "Kake", "Kjøttkake", "Karbonade", "Pizza" };
 
         private List<Race> raceList = new List<Race>() {
-            new Race(75, 12,10,15,8,8,8,"Gnome"),
-            new Race(85, 12,10,15,8,8,8,"Dwarf"),
-            new Race(85, 12,10,15,8,8,8,"Goblin"),
-            new Race(100, 12,10,15,8,8,8,"Human"),
-            new Race(95, 12,10,15,8,8,8,"Elf"),
-            new Race(130, 12,10,15,8,8,8,"Tauren"),
-            new Race(125, 12,10,15,8,8,8,"Orc"),
-            new Race(125, 12,10,15,8,8,8,"Troll"),
-            new Race(125, 12,10,15,8,8,8,"Ogre"),
-            new Race(125, 12,10,15,8,8,8,"Centaur")
+            new Race(75, 12,10,15,8,"Gnome"),
+            new Race(85, 12,10,15,8,"Dwarf"),
+            new Race(85, 12,10,15,8,"Goblin"),
+            new Race(100, 12,10,15,8,"Human"),
+            new Race(95, 12,10,15,8,"Elf"),
+            new Race(130, 12,10,15,8,"Tauren"),
+            new Race(125, 12,10,15,8,"Orc"),
+            new Race(125, 12,10,15,8,"Troll"),
+            new Race(125, 12,10,15,8,"Ogre"),
+            new Race(125, 12,10,15,8,"Centaur")
         };
 
         public Enemy()
@@ -34,18 +36,18 @@ namespace EnemyClass
             this._level = 1;
             this._hp = 100;
             this._maxHp = 100;
-            this._dexterity = 0;
-            this._strength = 0;
-            this._intelligence = 0;
-            this._constitution = 0;
-            this._wisdom = 0;
-            this._charisma = 0;
+            this._evasion = 0;
+            this._attackPower = 0;
+            this._mana = 0;
+            this._defencePower = 0;
             this._name = "";
             this._race = "";
             this._sex = "";
         }
 
-        public int _Exp
+        // get set
+
+        public long _Exp
         {
             get { return _exp; }
             set { _exp = value; }
@@ -69,40 +71,28 @@ namespace EnemyClass
             set { _maxHp = value; }
         }
 
-        public int _Dexterity
+        public int _Evasion
         {
-            get { return _dexterity; }
-            set { _dexterity = value; }
+            get { return _evasion; }
+            set { _evasion = value; }
         }
 
-        public int _Strength
+        public int _AttackPower
         {
-            get { return _strength; }
-            set { _strength = value; }
+            get { return _attackPower; }
+            set { _attackPower = value; }
         }
 
-        public int _Intelligence
+        public int _Mana
         {
-            get { return _intelligence; }
-            set { _intelligence = value; }
+            get { return _mana; }
+            set { _mana = value; }
         }
 
-        public int _Constitution
+        public int _DefencePower
         {
-            get { return _constitution; }
-            set { _constitution = value; }
-        }
-
-        public int _Wisdom
-        {
-            get { return _wisdom; }
-            set { _wisdom = value; }
-        }
-
-        public int _Charisma
-        {
-            get { return _charisma; }
-            set { _charisma = value; }
+            get { return _defencePower; }
+            set { _defencePower = value; }
         }
 
         public string _Name
@@ -123,6 +113,8 @@ namespace EnemyClass
             set { _sex = value; }
         }
 
+        // functions aka methods
+        
         public bool isAlive()
         {
             return this._hp > 0;
@@ -137,12 +129,10 @@ namespace EnemyClass
             selectedRace = raceList[randI];
 
             this._hp = selectedRace._Hp;
-            this._dexterity = selectedRace._Dexterity;
-            this._strength = selectedRace._Strength;
-            this._intelligence = selectedRace._Intelligence;
-            this._constitution = selectedRace._Constitution;
-            this._wisdom = selectedRace._Wisdom;
-            this._charisma = selectedRace._Charisma;
+            this._evasion = selectedRace._Evasion;
+            this._attackPower = selectedRace._AttackPower;
+            this._mana = selectedRace._Mana;
+            this._defencePower = selectedRace._DefencePower;
             this._race = selectedRace._Race;
         }
 
@@ -158,7 +148,7 @@ namespace EnemyClass
 
         public int basicEnemyAttack(Character target)
         {
-            target._Hp = target._Hp - this._strength;
+            target._Hp = target._Hp - this._attackPower;
 
             return this._hp;
         }
