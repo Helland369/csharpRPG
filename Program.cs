@@ -6,7 +6,7 @@ class Program {
 
         Game game = new Game();
 
-        game.mainGame();
+        game.MainGame();
 
     }
 }

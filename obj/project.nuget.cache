@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ZHd9vtmmkTF8MsKvlD9vu1Iq6UU7ueY7JBPLRbpBawALlz4dnh43/zw3ess7IjwnSTSc11A7plyrKnxuiPCAdA==",
+  "dgSpecHash": "Beh6uzvTtqE=",
   "success": true,
   "projectFilePath": "/home/th/github/csharpRPG/csharpRPG.csproj",
   "expectedPackageFiles": [
-    "/home/th/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.10/microsoft.aspnetcore.app.ref.8.0.10.nupkg.sha512"
+    "/home/th/.nuget/packages/microsoft.netcore.app.ref/8.0.11/microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "/home/th/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.11/microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512",
+    "/home/th/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.11/microsoft.netcore.app.host.linux-x64.8.0.11.nupkg.sha512"
   ],
   "logs": []
 }

@@ -27,7 +27,7 @@ namespace ChacterClass
             this._name = "";
             this._race = ";";
             this._sex = "";
-            this.selectedRace = selectRace();
+            this.selectedRace = SelectRace();
         }
 
         private List<Race> raceList = new List<Race>() {
@@ -101,21 +101,21 @@ namespace ChacterClass
 
         // functions aka methods
 
-        public int characterHeal()
+        public int CharacterHeal()
         {
             if (this._hp < this._maxHp)
                 this._hp = this._hp + 10;
             return this._hp;
         }
 
-        public int restoreMana()
+        public int RestoreMana()
         {
             if (this._mana < this._maxMana)
                 this._mana = this._mana + 10;
             return this._mana;
         }
 
-        public int basicAttack(Enemy target)
+        public int BasicAttack(Enemy target)
         {
             target._Hp = target._Hp - this._attackPower;
             this._mana = this._mana - 5;
@@ -123,12 +123,12 @@ namespace ChacterClass
             return this._hp;
         }
 
-        public bool isAlive()
+        public bool IsAlive()
         {
             return this._hp > 0;
         }
 
-        Race selectRace()
+        Race SelectRace()
         {
             Console.WriteLine("Select a race:");
 
@@ -156,7 +156,7 @@ namespace ChacterClass
             return selectedRace;
         }
 
-        string selectSex()
+        string SelectSex()
         {
 
             Console.WriteLine("Select a sex for you character");
@@ -182,7 +182,7 @@ namespace ChacterClass
             return this._sex;
         }
 
-        string selectName()
+        string SelectName()
         {
 
             Console.WriteLine("Select a name for you character");
@@ -197,14 +197,14 @@ namespace ChacterClass
             return this._name;
         }
 
-        public void characterCreat()
+        public void CharacterCreat()
         {
 
             Console.WriteLine("***Character Cration***");
 
-            selectRace();
-            selectSex();
-            selectName();
+            SelectRace();
+            SelectSex();
+            SelectName();
 
             Console.WriteLine($"{this._hp}");
             Console.WriteLine($"{this._evasion}");

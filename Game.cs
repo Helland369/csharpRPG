@@ -10,12 +10,12 @@ namespace GameClass
         private Character character = new Character();
         private Enemy enemy = new Enemy();
 
-        private void combat()
+        private void Combat()
         {
-            enemy.randomEnemy();
-            enemy.randomEnemyName();
+            enemy.RandomEnemy();
+            enemy.RandomEnemyName();
 
-            while (character.isAlive() && enemy.isAlive())
+            while (character.IsAlive() && enemy.isAlive())
             {
 
                 Console.WriteLine($"Player Stats:\tEnemy stats:\n" +
@@ -32,31 +32,32 @@ namespace GameClass
                 switch (x)
                 {
                     case 1:
-                        character.basicAttack(enemy);
+                        character.BasicAttack(enemy);
                         if (enemy.isAlive())
                         {
-                            enemy.basicEnemyAttack(character);
+                            enemy.BasicEnemyAttack(character);
                         }
                         break;
                     case 2:
-                        character.characterHeal();
+                        character.CharacterHeal();
                         break;
                     case 3:
-                        character.restoreMana();
+                        character.RestoreMana();
                         break;
                     default:
+                        Console.WriteLine("Invalid Input");
                         break;
                 }
             }
         }
 
-        public void mainGame()
+        public void MainGame()
         {
-            character.characterCreat();
+            character.CharacterCreat();
 
             Console.Clear();
 
-            combat();
+            Combat();
         }
     }
 }

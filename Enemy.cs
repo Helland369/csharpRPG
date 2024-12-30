@@ -13,11 +13,11 @@ namespace EnemyClass
         long _exp;
         private string _name, _race, _sex;
 
-        private Race selectedRace;
+        private Race _selectedRace;
 
-        private string[] enemyNames = { "Per", "Pål", "Espen", "Gunnar", "Terje", "Hans", "Kake", "Kjøttkake", "Karbonade", "Pizza" };
+        private string[] _enemyNames = { "Per", "Pål", "Espen", "Gunnar", "Terje", "Hans", "Kake", "Kjøttkake", "Karbonade", "Pizza" };
 
-        private List<Race> raceList = new List<Race>() {
+        private List<Race> _raceList = new List<Race>() {
             new Race(75, 12,10,15,8,"Gnome"),
             new Race(85, 12,10,15,8,"Dwarf"),
             new Race(85, 12,10,15,8,"Goblin"),
@@ -120,37 +120,37 @@ namespace EnemyClass
             return this._hp > 0;
         }
 
-        public void randomEnemy()
+        public void RandomEnemy()
         {
             Random rand = new Random();
 
-            int randI = rand.Next(0, raceList.Count());
+            int randI = rand.Next(0, _raceList.Count());
 
-            selectedRace = raceList[randI];
+            _selectedRace = _raceList[randI];
 
-            this._hp = selectedRace._Hp;
-            this._evasion = selectedRace._Evasion;
-            this._attackPower = selectedRace._AttackPower;
-            this._mana = selectedRace._Mana;
-            this._defencePower = selectedRace._DefencePower;
-            this._race = selectedRace._Race;
+            _hp = _selectedRace._Hp;
+            _evasion = _selectedRace._Evasion;
+            _attackPower = _selectedRace._AttackPower;
+            _mana = _selectedRace._Mana;
+            _defencePower = _selectedRace._DefencePower;
+            _race = _selectedRace._Race;
         }
 
-        public string randomEnemyName()
+        public string RandomEnemyName()
         {
             Random rand = new Random();
 
-            int i = rand.Next(0, enemyNames.Length);
-            this._name = this.enemyNames[i];
+            int i = rand.Next(0, _enemyNames.Length);
+            _name = _enemyNames[i];
 
-            return this._name;
+            return _name;
         }
 
-        public int basicEnemyAttack(Character target)
+        public int BasicEnemyAttack(Character target)
         {
-            target._Hp = target._Hp - this._attackPower;
+            target._Hp = target._Hp - _attackPower;
 
-            return this._hp;
+            return _hp;
         }
     }
 }
