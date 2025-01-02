@@ -4,8 +4,6 @@ using ChacterClass;
 namespace EnemyClass
 {
 
-
-    //private int _level, _hp, _maxHp, _evasion, _attackPower, _mana, _defencePower;
     class Enemy
     {
 
@@ -15,7 +13,7 @@ namespace EnemyClass
 
         private Race _selectedRace;
 
-        private string[] _enemyNames = { "Per", "Pål", "Espen", "Gunnar", "Terje", "Hans", "Kake", "Kjøttkake", "Karbonade", "Pizza" };
+        private readonly string[] _enemyNames = { "Per", "Pål", "Espen", "Gunnar", "Terje", "Hans", "Kake", "Kjøttkake", "Karbonade", "Pizza" };
 
         private List<Race> _raceList = new List<Race>() {
             new Race(75, 12,10,15,8,"Gnome"),
@@ -32,17 +30,17 @@ namespace EnemyClass
 
         public Enemy()
         {
-            this._exp = 0;
-            this._level = 1;
-            this._hp = 100;
-            this._maxHp = 100;
-            this._evasion = 0;
-            this._attackPower = 0;
-            this._mana = 0;
-            this._defencePower = 0;
-            this._name = "";
-            this._race = "";
-            this._sex = "";
+            _exp = 0;
+            _level = 1;
+            _hp = 100;
+            _maxHp = 100;
+            _evasion = 0;
+            _attackPower = 0;
+            _mana = 0;
+            _defencePower = 0;
+            _name = "";
+            _race = "";
+            _sex = "";
         }
 
         // get set
@@ -117,7 +115,7 @@ namespace EnemyClass
         
         public bool isAlive()
         {
-            return this._hp > 0;
+            return _hp > 0;
         }
 
         public void RandomEnemy()

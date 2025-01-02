@@ -11,26 +11,26 @@ namespace ChacterClass
         long _exp;
         private string _name, _race, _sex;
 
-        private Race selectedRace;
+        private Race _selectedRace;
 
         public Character()
         {
-            this._exp = 0;
-            this._level = 1;
-            this._hp = 100;
-            this._maxHp = 100;
-            this._evasion = 10;
-            this._attackPower = 10;
-            this._mana = 10;
-            this._maxMana = 30;
-            this._defencePower = 10;
-            this._name = "";
-            this._race = ";";
-            this._sex = "";
-            this.selectedRace = SelectRace();
+            _exp = 0;
+            _level = 1;
+            _hp = 100;
+            _maxHp = 100;
+            _evasion = 10;
+            _attackPower = 10; 
+            _mana = 10;
+            _maxMana = 30;
+            _defencePower = 10;
+            _name = "";
+            _race = ";";
+            _sex = "";
+            _selectedRace = SelectRace();
         }
 
-        private List<Race> raceList = new List<Race>() {
+        private List<Race> _races = new List<Race>() {
             new Race(75, 20,30,30,16, "Gnome"),
             new Race(85, 20,30,30,16,"Dwarf"),
             new Race(85, 20,30,30,16,"Goblin"),
@@ -42,118 +42,71 @@ namespace ChacterClass
 
         // get set
 
-        public int _Level
-        {
-            get { return this._level; }
-
-            set { this._level = value; }
-        }
-
-        public int _Hp
-        {
-            get { return this._hp; }
-            set { this._hp = value; }
-
-        }
-
-        public int _MaxHp
-        {
-            get { return this._maxHp; }
-            set { _maxHp = value; }
-        }
-
-        public int _Evasion
-        {
-            get { return _evasion; }
-            set { _evasion = value; }
-        }
-
-        public int _AttackPower
-        {
-            get { return _attackPower; }
-            set { _attackPower = value; }
-        }
-
-        public int _Mana
-        {
-            get { return _mana; }
-            set { _mana = value; }
-        }
-
-        public int _DefencePower
-        {
-            get { return _defencePower; }
-            set { _defencePower = value; }
-        }
-
-        public long _Exp
-        {
-            get { return this._exp; }
-            set { this._exp = value; }
-        }
-
-        public string _Name
-        {
-            get { return this._name; }
-
-            set { this._name = value; }
-        }
+        public int _Level { get { return _level; } set { _level = value; } }
+        public int _Hp { get { return _hp; } set { _hp = value; } }
+        public int _MaxHp { get { return _maxHp; } set { _maxHp = value; } }
+        public int _Evasion { get { return _evasion; } set { _evasion = value; } }
+        public int _AttackPower { get { return _attackPower; } set { _attackPower = value; } }
+        public int _Mana { get { return _mana; } set { _mana = value; } }
+        public int _DefencePower { get { return _defencePower; } set { _defencePower = value; } }
+        public long _Exp { get { return this._exp; } set { this._exp = value; } }
+        public string _Name { get { return this._name; } set { this._name = value; } }
 
         // functions aka methods
 
         public int CharacterHeal()
         {
-            if (this._hp < this._maxHp)
-                this._hp = this._hp + 10;
-            return this._hp;
+            if (_hp < _maxHp)
+                _hp = _hp + 10;
+            return _hp;
         }
 
         public int RestoreMana()
         {
-            if (this._mana < this._maxMana)
-                this._mana = this._mana + 10;
-            return this._mana;
+            if (_mana < _maxMana)
+                _mana = _mana + 10;
+            return _mana;
         }
 
         public int BasicAttack(Enemy target)
         {
-            target._Hp = target._Hp - this._attackPower;
-            this._mana = this._mana - 5;
+            target._Hp = target._Hp - _attackPower;
+            _mana = _mana - 5;
 
-            return this._hp;
+            return _hp;
         }
 
         public bool IsAlive()
         {
-            return this._hp > 0;
+            return _hp > 0;
         }
 
         Race SelectRace()
         {
             Console.WriteLine("Select a race:");
 
-            for (int i = 0; i < raceList.Count(); i++)
+            for (int i = 0; i < _races.Count(); i++)
             {
-                Console.WriteLine($"{i + 1}. Race: {raceList[i]._Race}");
+                Console.WriteLine($"{i + 1}. Race: {_races[i]._Race}");
             }
 
             Console.WriteLine("Write the race you want!");
             int input = Convert.ToInt32(Console.ReadLine());
 
-            selectedRace = raceList[input - 1];
+            _selectedRace = _races[input - 1];
 
             if (input == 1 || input == 2 || input == 3 || input == 4 || input == 5 || input == 6 || input == 7)
             {
 
-                this._hp = selectedRace._Hp;
-                this._evasion = selectedRace._Evasion;
-                this._attackPower = selectedRace._AttackPower;
-                this._mana = selectedRace._Mana;
-                this._defencePower = selectedRace._DefencePower;
-                this._race = selectedRace._Race;
+                _hp = _selectedRace._Hp;
+                _evasion = _selectedRace._Evasion;
+                _attackPower = _selectedRace._AttackPower;
+                _mana = _selectedRace._Mana;
+                _defencePower = _selectedRace._DefencePower;
+                _race = _selectedRace._Race;
             }
 
-            return selectedRace;
+            return _selectedRace;
         }
 
         string SelectSex()
@@ -171,15 +124,15 @@ namespace ChacterClass
 
             if (selectSex == "Male")
             {
-                this._sex = selectSex;
-                return this._sex;
+                _sex = selectSex;
+                return _sex;
             }
             else if (selectSex == "Female")
             {
-                this._sex = selectSex;
-                return this._sex;
+                _sex = selectSex;
+                return _sex;
             }
-            return this._sex;
+            return _sex;
         }
 
         string SelectName()
@@ -192,9 +145,9 @@ namespace ChacterClass
             {
                 nameIn = char.ToUpper(nameIn[0]) + nameIn.Substring(1);
             }
-            this._name = nameIn;
+            _name = nameIn;
 
-            return this._name;
+            return _name;
         }
 
         public void CharacterCreat()
@@ -206,14 +159,14 @@ namespace ChacterClass
             SelectSex();
             SelectName();
 
-            Console.WriteLine($"{this._hp}");
-            Console.WriteLine($"{this._evasion}");
-            Console.WriteLine($"{this._attackPower}");
-            Console.WriteLine($"{this._mana}");
-            Console.WriteLine($"{this._defencePower}");
-            Console.WriteLine($"{this._race}");
-            Console.WriteLine($"{this._sex}");
-            Console.WriteLine($"{this._name}");
+            Console.WriteLine($"{_hp}");
+            Console.WriteLine($"{_evasion}");
+            Console.WriteLine($"{_attackPower}");
+            Console.WriteLine($"{_mana}");
+            Console.WriteLine($"{_defencePower}");
+            Console.WriteLine($"{_race}");
+            Console.WriteLine($"{_sex}");
+            Console.WriteLine($"{_name}");
         }
     }
 }

@@ -8,50 +8,50 @@ namespace RaceClass
 
         public Race(int hp, int evasion, int attackPower, int mana, int defencePower, string race)
         {
-            this._hp = hp;
-            this._evasion = evasion;
-            this._attackPower = attackPower;
-            this._mana = mana;
-            this._defencePower = defencePower;
-            this._race = race;
+            _hp = hp;
+            _evasion = evasion;
+            _attackPower = attackPower;
+            _mana = mana;
+            _defencePower = defencePower;
+            _race = race;
         }
 
         // get set
         
         public int _Hp
         {
-            get { return this._hp; }
-            set { this._hp = value; }
+            get { return _hp; }
+            set { _hp = value; }
         }
 
         public int _Evasion
         {
             get { return _evasion; }
-            set { this._evasion = value; }
+            set { _evasion = value; }
         }
 
         public int _AttackPower
         {
-            get { return this._attackPower; }
-            set { this._attackPower = value; }
+            get { return _attackPower; }
+            set { _attackPower = value; }
         }
 
         public int _Mana
         {
-            get { return this._mana; }
-            set { this._mana = value; }
+            get { return _mana; }
+            set { _mana = value; }
         }
 
         public int _DefencePower
         {
-            get { return this._defencePower; }
-            set { this._defencePower = value; }
+            get { return _defencePower; }
+            set { _defencePower = value; }
         }
 
         public string _Race
         {
-            get { return this._race; }
-            set { this._race = value; }
+            get { return _race; }
+            set { _race = value; }
         }
     }
 }

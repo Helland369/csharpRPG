@@ -7,22 +7,22 @@ namespace GameClass
 
     class Game
     {
-        private Character character = new Character();
-        private Enemy enemy = new Enemy();
+        private Character _character = new Character();
+        private Enemy _enemy = new Enemy();
 
         private void Combat()
         {
-            enemy.RandomEnemy();
-            enemy.RandomEnemyName();
+            _enemy.RandomEnemy();
+            _enemy.RandomEnemyName();
 
-            while (character.IsAlive() && enemy.isAlive())
+            while (_character.IsAlive() && _enemy.isAlive())
             {
 
                 Console.WriteLine($"Player Stats:\tEnemy stats:\n" +
-                                  $"Hp: {character._Hp}|\t|Hp: {enemy._Hp}\n" +
-                                  $"Mana: {character._Mana}|\t|Mana: {enemy._Hp}\n" +
-                                  $"Atk: {character._AttackPower}|\t|Atk: {enemy._AttackPower}\n" +
-                                  $"Def: {character._DefencePower}|\t|Def {enemy._DefencePower}\n");
+                                  $"Hp: {_character._Hp}|\t|Hp: {_enemy._Hp}\n" +
+                                  $"Mana: {_character._Mana}|\t|Mana: {_enemy._Hp}\n" +
+                                  $"Atk: {_character._AttackPower}|\t|Atk: {_enemy._AttackPower}\n" +
+                                  $"Def: {_character._DefencePower}|\t|Def {_enemy._DefencePower}\n");
 
                 Console.WriteLine("[1] Attack\n" +
                                   "[2] Heal");
@@ -32,17 +32,17 @@ namespace GameClass
                 switch (x)
                 {
                     case 1:
-                        character.BasicAttack(enemy);
-                        if (enemy.isAlive())
+                        _character.BasicAttack(_enemy);
+                        if (_enemy.isAlive())
                         {
-                            enemy.BasicEnemyAttack(character);
+                            _enemy.BasicEnemyAttack(_character);
                         }
                         break;
                     case 2:
-                        character.CharacterHeal();
+                        _character.CharacterHeal();
                         break;
                     case 3:
-                        character.RestoreMana();
+                        _character.RestoreMana();
                         break;
                     default:
                         Console.WriteLine("Invalid Input");
@@ -53,7 +53,7 @@ namespace GameClass
 
         public void MainGame()
         {
-            character.CharacterCreat();
+            _character.CharacterCreat();
 
             Console.Clear();
 
